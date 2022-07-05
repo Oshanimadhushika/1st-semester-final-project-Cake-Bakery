@@ -1,0 +1,136 @@
+DROP DATABASE IF EXISTS CakeBakery;
+CREATE DATABASE IF NOT EXISTS CakeBakery ;
+USE CakeBakery;
+
+DROP TABLE IF EXISTS User;
+CREATE TABLE IF NOT EXISTS User(
+                                   userId VARCHAR(15) NOT NULL,
+                                   userName VARCHAR(45) NOT NULL ,
+                                   password VARCHAR(15),
+                                   CONSTRAINT PRIMARY KEY (userId)
+
+);
+
+INSERT INTO User VALUES ('U00-001','Admin','oshi0305');
+DROP TABLE IF EXISTS Employee;
+CREATE TABLE IF NOT EXISTS Employee(
+                                       empId VARCHAR(15) NOT NULL ,
+                                       empName VARCHAR(45) NOT NULL ,
+                                       address VARCHAR(10),
+                                       ContactNo VARCHAR(15),
+                                       gender VARCHAR(10),
+                                       CONSTRAINT PRIMARY KEY (empId)
+
+);
+
+
+
+DROP TABLE IF EXISTS Customer;
+CREATE TABLE IF NOT EXISTS Customer(
+                                       cusId VARCHAR(15) NOT NULL,
+                                       cusName VARCHAR(45) NOT NULL ,
+                                       address VARCHAR(50),
+                                       ContactNo VARCHAR(15),
+                                       userId VARCHAR(15) ,
+                                       CONSTRAINT PRIMARY KEY (cusId),
+                                       CONSTRAINT FOREIGN KEY (userId) REFERENCES User(userId) ON DELETE CASCADE ON UPDATE CASCADE
+
+);
+
+DROP TABLE IF EXISTS Deliver;
+CREATE TABLE IF NOT EXISTS Deliver(
+                                      deliverId VARCHAR(15) NOT NULL,
+                                      deliverName VARCHAR(45) NOT NULL ,
+                                      ContactNo VARCHAR(15),
+                                      VehiNo VARCHAR(15),
+                                      CONSTRAINT PRIMARY KEY (deliverId)
+
+
+);
+DROP TABLE IF EXISTS Payment;
+CREATE TABLE IF NOT EXISTS Payment(
+                                      payId VARCHAR(15) NOT NULL,
+                                      payDetail VARCHAR(45),
+                                      payMethod VARCHAR(45) NOT NULL ,
+                                      CONSTRAINT PRIMARY KEY (payId)
+
+);
+
+DROP TABLE IF EXISTS `Order`;
+CREATE TABLE IF NOT EXISTS `Order`(
+                                    orderId VARCHAR(15) NOT NULL,
+                                    cusId VARCHAR(15) NOT NULL ,
+                                    deliverId VARCHAR(15) NOT NULL ,
+                                    payId VARCHAR(15) NOT NULL ,
+                                    orderDate DATE ,
+                                    totalCost double,
+                                    CONSTRAINT PRIMARY KEY (orderId),
+                                    CONSTRAINT FOREIGN KEY (cusId) REFERENCES Customer(cusId) ON DELETE CASCADE ON UPDATE CASCADE ,
+                                    CONSTRAINT FOREIGN KEY (deliverId) REFERENCES Deliver(deliverId) ON DELETE CASCADE ON UPDATE CASCADE,
+                                    CONSTRAINT FOREIGN KEY (payId) REFERENCES Payment(payId) ON DELETE CASCADE ON UPDATE CASCADE
+
+
+);
+
+DROP TABLE IF EXISTS Item;
+CREATE TABLE IF NOT EXISTS Item(
+                                   itemId VARCHAR(15) NOT NULL,
+                                   name VARCHAR(25),
+                                   description TEXT,
+                                   unitPrice DOUBLE DEFAULT 0.0,
+                                   qtyOnHand INT DEFAULT 0,
+                                   CONSTRAINT PRIMARY KEY (itemId)
+);
+
+DROP TABLE IF EXISTS Order_Detail;
+CREATE TABLE IF NOT EXISTS Order_Detail(
+                                           orderId VARCHAR(15) NOT NULL ,
+                                           itemId VARCHAR(15) NOT NULL ,
+                                           qty INT,
+                                           unitPrice DOUBLE,
+                                           CONSTRAINT PRIMARY KEY (orderId,itemId),
+                                           CONSTRAINT FOREIGN KEY (orderId) REFERENCES `Order`(orderId) ON DELETE CASCADE ON UPDATE CASCADE ,
+                                           CONSTRAINT FOREIGN KEY (itemId) REFERENCES Item(itemId) ON DELETE CASCADE ON UPDATE CASCADE
+
+
+);
+
+DROP TABLE IF EXISTS Supplier;
+CREATE TABLE IF NOT EXISTS Supplier(
+                                       supplierCode VARCHAR(15) NOT NULL,
+                                       supplierName VARCHAR(45),
+                                       Address VARCHAR(45),
+                                       ContactNo VARCHAR(15),
+                                      CONSTRAINT PRIMARY KEY (supplierCode)
+
+);
+
+
+DROP TABLE IF EXISTS SupplierOrder;
+CREATE TABLE IF NOT EXISTS SupplierOrder(
+                                            supplierOrderCode VARCHAR(15) NOT NULL,
+                                            Ingredients VARCHAR(45),
+                                            qty INT,
+                                            cost DOUBLE,
+                                            ManufacDate DATE,
+                                            ExpireDate DATE,
+                                            supplierCode VARCHAR(15) NOT NULL ,
+                                            CONSTRAINT PRIMARY KEY (supplierOrderCode),
+                                            CONSTRAINT FOREIGN KEY (supplierCode) REFERENCES Supplier(supplierCode) ON DELETE CASCADE ON UPDATE CASCADE
+
+);
+
+
+DROP TABLE IF EXISTS SupplierOrder_detail;
+CREATE TABLE IF NOT EXISTS SupplierOrder_detail(
+                                                   supplierOrderCode VARCHAR(15) NOT NULL ,
+                                                   itemId VARCHAR(15) NOT NULL ,
+                                                   ingredientQty INT,
+                                                   price DOUBLE,
+                                                   CONSTRAINT PRIMARY KEY (supplierOrderCode,itemId),
+                                                   CONSTRAINT FOREIGN KEY (supplierOrderCode) REFERENCES supplierOrder(supplierOrderCode) ON DELETE CASCADE ON UPDATE CASCADE ,
+                                                   CONSTRAINT FOREIGN KEY (itemId) REFERENCES Item(itemId) ON DELETE CASCADE ON UPDATE CASCADE
+
+
+
+);

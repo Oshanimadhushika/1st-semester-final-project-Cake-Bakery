@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="OrderFormContext" prefHeight="577.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderFormController">
+   <children>
+      <ImageView fitHeight="579.0" fitWidth="822.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/WhatsApp%20Image%202022-03-16%20at%2010.31.15%20AM.jpeg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a9197" height="324.0" layoutX="17.0" layoutY="50.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" width="792.0" />
+      <Text fill="#f2ebeb" layoutX="78.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Form">
+         <font>
+            <Font name="Impact" size="32.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtOrderId" layoutX="27.0" layoutY="67.0" prefHeight="39.0" prefWidth="144.0" promptText="Order ID" />
+      <TextField fx:id="txtDate" layoutX="202.0" layoutY="67.0" prefHeight="39.0" prefWidth="138.0" promptText="Order Date" />
+      <ComboBox fx:id="cmbCusId" layoutX="27.0" layoutY="119.0" prefHeight="39.0" prefWidth="144.0" promptText="Customer ID" />
+      <TextField fx:id="txtCusName" layoutX="202.0" layoutY="119.0" prefHeight="39.0" prefWidth="138.0" promptText="Customer Name" />
+      <TextField fx:id="txtAddress" layoutX="364.0" layoutY="119.0" prefHeight="39.0" prefWidth="138.0" promptText="Address" />
+      <TextField fx:id="txtDescription" layoutX="202.0" layoutY="170.0" prefHeight="39.0" prefWidth="138.0" promptText="Description" />
+      <TextField fx:id="txtQtyOnHand" layoutX="515.0" layoutY="170.0" prefHeight="39.0" prefWidth="151.0" promptText="QTYOnHand" />
+      <ComboBox fx:id="cmbItemId" layoutX="27.0" layoutY="170.0" prefHeight="39.0" prefWidth="144.0" promptText="Item ID" />
+      <TextField fx:id="txtPrice" layoutX="364.0" layoutY="170.0" prefHeight="39.0" prefWidth="138.0" promptText="Unit Price" />
+      <ComboBox fx:id="cmbPayMeth" layoutX="364.0" layoutY="328.0" prefHeight="39.0" prefWidth="144.0" promptText="Payment Method" />
+      <TableView fx:id="tblOrederForm" layoutX="14.0" layoutY="387.0" prefHeight="178.0" prefWidth="601.0">
+        <columns>
+          <TableColumn fx:id="colOrderId" prefWidth="75.0" text="Order Id" />
+            <TableColumn fx:id="colItemId" prefWidth="75.0" text="Item Id" />
+            <TableColumn fx:id="colDescription" prefWidth="117.0" text="Description" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="88.0" text="Unit Price" />
+            <TableColumn fx:id="colQTy" prefWidth="88.0" text="QTY" />
+            <TableColumn fx:id="colTotalCost" prefWidth="79.0" text="Total Cost" />
+            <TableColumn fx:id="colOption" prefWidth="78.0" text="Option" />
+        </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#abb5bf" height="178.0" layoutX="629.0" layoutY="386.0" opacity="0.48" stroke="BLACK" strokeType="INSIDE" width="173.0" />
+      <Text fill="#fcf8f8" layoutX="697.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" wrappingWidth="89.0595703125">
+         <font>
+            <Font name="Georgia Bold" size="29.0" />
+         </font>
+      </Text>
+      <Button layoutX="27.0" layoutY="276.0" mnemonicParsing="false" onAction="#AddToCartOnAction" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: #1abc9c;" text=" ADD TO Cart">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="650.0" layoutY="399.0" mnemonicParsing="false" onAction="#PlaceOrderOnAction" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #f39c12;" text="Place Order">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="650.0" layoutY="508.0" mnemonicParsing="false" onAction="#PrintBillOnAction" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #f39c12;" text="Print Bill">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="lblTotalPrice" alignment="CENTER" layoutX="673.0" layoutY="87.0" prefHeight="39.0" prefWidth="130.0" promptText="0.00" style="-fx-background-color: #FDA7DF;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/order.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtPaymentId" layoutX="27.0" layoutY="328.0" onAction="#paymentIdOnAction" prefHeight="39.0" prefWidth="144.0" promptText="Payment ID" />
+      <TextField fx:id="txtPaymentDetail" layoutX="202.0" layoutY="328.0" prefHeight="39.0" prefWidth="138.0" promptText="Payment Detail" />
+      <ComboBox fx:id="cmbDeliverId" layoutX="27.0" layoutY="220.0" prefHeight="39.0" prefWidth="144.0" promptText="Rider ID" />
+      <TextField fx:id="txtDeliverName" layoutX="202.0" layoutY="226.0" prefHeight="39.0" prefWidth="138.0" promptText="Rider Name" />
+      <TextField fx:id="txtVehiNo" layoutX="515.0" layoutY="226.0" prefHeight="39.0" prefWidth="151.0" promptText="Vehi No" />
+      <Button layoutX="539.0" layoutY="328.0" mnemonicParsing="false" onAction="#PayAddOnAction" prefHeight="39.0" prefWidth="104.0" style="-fx-background-color: #1abc9c;" text="+ Pay ADD">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="664.0" layoutY="328.0" mnemonicParsing="false" onAction="#PayRemoveOnAction" prefHeight="39.0" prefWidth="104.0" style="-fx-background-color: #c0392b;" text="Pay Remove" textFill="#e8e5e5">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtdeliverContactNo" layoutX="364.0" layoutY="226.0" prefHeight="39.0" prefWidth="138.0" promptText="Contact No" />
+      <TextField fx:id="txtCusContactNo" layoutX="515.0" layoutY="119.0" prefHeight="39.0" prefWidth="151.0" promptText="Contact No" />
+      <TextField fx:id="txtQty" layoutX="703.0" layoutY="168.0" prefHeight="39.0" prefWidth="98.0" promptText="QTY" />
+      <Separator layoutX="684.0" layoutY="168.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="12.0" />
+      <Button layoutX="650.0" layoutY="456.0" mnemonicParsing="false" onAction="#ViewOrderOnAction" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #f39c12;" text="View Order Detail">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

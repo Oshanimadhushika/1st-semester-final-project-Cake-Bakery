@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ItemFormContext" prefHeight="577.0" prefWidth="822.0" style="-fx-border-color: #b33939;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemFormController">
+   <children>
+      <ImageView fitHeight="511.0" fitWidth="778.0" layoutX="10.0" layoutY="46.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/WhatsApp%20Image%202022-03-16%20at%2010.31.15%20AM.jpeg" />
+         </image>
+         <effect>
+            <Blend opacity="0.65" />
+         </effect>
+      </ImageView>
+      <Text fill="#792626" layoutX="67.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Form-: Add/Delete/Update">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnADD" layoutX="598.0" layoutY="266.0" mnemonicParsing="false" onAction="#AddOnAction" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #f1c40f;" text="+ Add Item" wrapText="true">
+         <font>
+            <Font name="Ebrima Bold" size="17.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtName" alignment="CENTER" layoutX="22.0" layoutY="125.0" onKeyReleased="#txtFeild_Key_Released" prefHeight="46.0" prefWidth="159.0" promptText="Name" style="-fx-border-width: 7px; -fx-border-color: grey;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtDescription" alignment="CENTER" layoutX="22.0" layoutY="179.0" onKeyReleased="#txtFeild_Key_Released" prefHeight="46.0" prefWidth="159.0" promptText="Description" style="-fx-border-width: 7px; -fx-border-color: grey;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtUnitPrice" alignment="CENTER" layoutX="22.0" layoutY="237.0" onKeyReleased="#txtFeild_Key_Released" prefHeight="46.0" prefWidth="159.0" promptText="Unit Price" style="-fx-border-width: 7px; -fx-border-color: grey;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblItem" layoutX="50.0" layoutY="315.0" prefHeight="230.0" prefWidth="718.0">
+         <columns>
+            <TableColumn fx:id="tblColumId" prefWidth="87.0" text="Item ID" />
+            <TableColumn fx:id="tblColumnName" prefWidth="89.0" text="Name" />
+            <TableColumn fx:id="tblColumnDescription" prefWidth="134.0" text="Description" />
+            <TableColumn fx:id="tblColumnUnitPrice" prefWidth="124.0" text="Unit Price" />
+            <TableColumn fx:id="tblColumnQtyOnHand" minWidth="0.0" prefWidth="132.0" text="QtyOnHand" />
+            <TableColumn fx:id="tblColumnOption" prefWidth="151.0" text="Option" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtQty" alignment="CENTER" layoutX="219.0" layoutY="64.0" onKeyReleased="#txtFeild_Key_Released" prefHeight="46.0" prefWidth="120.0" promptText="QtyOnHand" style="-fx-border-width: 7px; -fx-border-color: grey;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtItemId" alignment="CENTER" layoutX="22.0" layoutY="64.0" onAction="#itemIdOnAction" onKeyReleased="#txtFeild_Key_Released" prefHeight="46.0" prefWidth="159.0" promptText="Item ID" style="-fx-border-width: 7px; -fx-border-color: grey;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/trolley.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnSearch" layoutX="399.0" layoutY="266.0" mnemonicParsing="false" onAction="#SearchOnAction" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #16a085;" text="Search" wrapText="true">
+         <font>
+            <Font name="Ebrima Bold" size="17.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblSupOrderTable" layoutX="428.0" layoutY="110.0" prefHeight="145.0" prefWidth="278.0">
+        <columns>
+          <TableColumn fx:id="colsupOrderCode" prefWidth="131.0" style="-fx-border-color: black;" text="SupOrderCode" />
+          <TableColumn fx:id="colIngredientName" prefWidth="146.0" style="-fx-border-color: black;" text="Ingredient" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnADDSupplierOrder" layoutX="702.0" layoutY="63.0" mnemonicParsing="false" onAction="#AddSupplierOrderOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: #16a085;" text="Add " wrapText="true">
+         <font>
+            <Font name="Ebrima Bold" size="17.0" />
+         </font>
+      </Button>
+      <JFXComboBox fx:id="cmbSupplierOrderCode" focusColor="#2c4aa4" layoutX="429.0" layoutY="65.0" prefHeight="29.0" prefWidth="138.0" promptText="Sup_Order_Code" style="-fx-background-color: white;" unFocusColor="#ffe0e0" />
+      <TextField fx:id="txtIngredientQty" alignment="CENTER" layoutX="580.0" layoutY="63.0" onKeyReleased="#txtFeild_Key_Released" prefHeight="34.0" prefWidth="114.0" promptText="Ing_QTY" style="-fx-border-width: 5px; -fx-border-color: grey;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

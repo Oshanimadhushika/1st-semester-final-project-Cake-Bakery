@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="LoadOrderDetailFormContext" prefHeight="577.0" prefWidth="822.0" style="-fx-border-color: #b33939;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoadAllOrderDetailsFormController">
+   <children>
+      <ImageView fitHeight="486.0" fitWidth="792.0" layoutX="-14.0" layoutY="46.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/WhatsApp%20Image%202022-03-16%20at%2010.31.15%20AM.jpeg" />
+         </image>
+         <effect>
+            <Blend opacity="0.65" />
+         </effect>
+      </ImageView>
+      <Text fill="#792626" layoutX="63.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Detail Form">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/essay.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblLoadAllOrder" layoutX="41.0" layoutY="169.0" prefHeight="308.0" prefWidth="716.0">
+        <columns>
+          <TableColumn fx:id="colOrderId" prefWidth="101.0" text="Order Id" />
+            <TableColumn fx:id="colCustomerId" prefWidth="120.0" text="Customer Id" />
+            <TableColumn fx:id="colDeliverId" prefWidth="124.0" text="Delever Id" />
+            <TableColumn fx:id="colPayId" prefWidth="122.0" text="Pay Id" />
+            <TableColumn fx:id="colOrderDate" prefWidth="136.0" text="Order Date" />
+            <TableColumn fx:id="colTotalCost" prefWidth="112.0" text="Total Cost" />
+        </columns>
+      </TableView>
+      <Text fill="#f5eded" layoutX="52.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Load All Order Details">
+         <font>
+            <Font name="Consolas Bold" size="26.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

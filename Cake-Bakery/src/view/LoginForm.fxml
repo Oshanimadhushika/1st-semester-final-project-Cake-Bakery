@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="LoginFormContext" prefHeight="577.0" prefWidth="822.0" style="-fx-background-color: #dcdde1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="577.0" fitWidth="411.0" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/heart-shaped-red-velvet-cake-dark.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="490.0" layoutY="21.0" prefHeight="42.0" prefWidth="264.0" text="The Cakey's Bakery" textFill="#ab2927">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Line endX="217.0" layoutX="572.0" layoutY="71.0" startX="-125.0" stroke="#c90707" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e565e" height="419.0" layoutX="439.0" layoutY="86.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="358.0" />
+      <Text layoutX="452.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name:">
+         <font>
+            <Font name="Constantia" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="462.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+         <font>
+            <Font name="Constantia" size="15.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="txtPassword" layoutX="491.0" layoutY="236.0" prefHeight="25.0" prefWidth="235.0" />
+      <TextField fx:id="txtUserName" layoutX="491.0" layoutY="154.0" prefHeight="25.0" prefWidth="235.0" />
+      <Button fx:id="btnLogin" layoutX="490.0" layoutY="381.0" mnemonicParsing="false" onAction="#LoginOnAction" prefHeight="34.0" prefWidth="264.0" style="-fx-background-color: #fbc531;" text="LOGIN">
+         <font>
+            <Font name="Constantia Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
